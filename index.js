@@ -130,8 +130,8 @@ Order.prototype.deleteItem = function (index) {
         console.log('Sorry, the order is already paid');
         return;
     }
-    this.items.splice(index, 1);
-    console.log('You have successfully added ' + item.name + ' to your order');
+    var item = this.items.splice(index, 1)[0];
+    console.log('You have successfully delete ' + item.name + ' to your order');
 }
 Order.prototype.getCalories = function () {
     var totalCalories = 0;
@@ -148,9 +148,12 @@ Order.prototype.getPrice = function () {
     return totalPrice;
 }
 Order.prototype.getList = function () {
-    for (var i = 0; i < this.items; i++) {
+    console.log('-----');
+    console.log('Your order is:');
+    for (var i = 0; i < this.items.length; i++) {
         console.log(this.items[i].getName());
     }
+    console.log('-----');
 }
 
 //тест
